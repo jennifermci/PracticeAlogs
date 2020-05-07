@@ -124,3 +124,76 @@ var computeArea = function(A, B, C, D, E, F, G, H) {
     return areaOne + areaTwo - overlap;
    
 };
+
+//second attempt
+
+var computeArea = function(A, B, C, D, E, F, G, H) {
+   
+   
+    if((C >= 0 && A >= 0) || (C <= 0 && A <= 0)){
+        var areaOne = Math.abs(C - A) * Math.abs(D-B);
+    }
+    else{
+        var areaOne = (Math.abs(C) + Math.abs(A) ) * (Math.abs(D) + Math.abs(B));
+    }
+   
+   
+    if((G >= 0 && E >= 0) || (G <= 0 && E <= 0)){
+        var areaTwo = Math.abs(G - E) * Math.abs(H-F);
+    }
+    else{
+        var areaTwo = (Math.abs(G) + Math.abs(E) ) * (Math.abs(H) + Math.abs(F));
+    }
+   
+    var overlap = 0;
+    var overlapLength;
+    var overlapHeight;
+   
+    console.log("Area One:",areaOne)
+    console.log("Area Two:",areaTwo)
+   
+    if ((E <= C && E >= A) && ( H <= D && H >= B)){
+       
+        if(G<C){
+            if(G<=0 && E <=0 || G>=0 && E >= 0){
+                overlapLength = Math.abs(G-E)
+            }
+            else{
+                overlapLength = (Math.abs(G) + Math.abs(E))
+            }
+        }
+        else{
+            if(E<=0 && C <=0 || E>=0 && C >= 0){
+                overlapLength = Math.abs(E-C)
+            }
+            else{
+                overlapLength = (Math.abs(E) + Math.abs(C))
+            }
+        }
+       
+        if(H<D){
+            if(B<=0 && H <=0 || B>=0 && H >= 0){
+                overlapHeight = Math.abs(F-H)
+            }
+            else{
+                overlapHeight = (Math.abs(F) + Math.abs(H))
+             }
+           
+        }else{
+            if(B<=0 && D <=0 || B>=0 && D >= 0){
+                overlapHeight = Math.abs(B-H)
+            }
+            else{
+                overlapHeight = (Math.abs(B) + Math.abs(D))
+             }
+        }
+        console.log("Length:",overlapLength )
+        console.log("Height:",overlapHeight )
+        overlap = overlapHeight * overlapLength;
+    }
+    console.log("overlap:",overlap)
+   
+   
+    return areaOne + areaTwo - overlap;
+   
+};
