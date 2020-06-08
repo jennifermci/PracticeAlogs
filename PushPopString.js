@@ -14,7 +14,7 @@ var buildArray = function(target, n) {
         if(target[count] != i+1){
            string.push("Push");
             string.push("Pop");
-            //i--
+            
        } 
         if(count == target.length){
             break;
