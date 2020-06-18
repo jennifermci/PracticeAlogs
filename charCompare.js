@@ -1,6 +1,4 @@
-var commonChars = function(A) {
-   
-   
+var commonChars = function(A) {  
     var first = A[0];
     var arr = []
    
@@ -37,3 +35,36 @@ var commonChars = function(A) {
 
 };
 
+var countCharacters = function(words, chars) {
+    var count=0;
+   for(var i=0; i<words.length; i++){
+       var lettercount = 0;
+       var temp = chars.split("");
+       for(var x=0; x<words[i].length; x++){
+           
+           
+           for(var t=0; t<temp.length; t++){
+               if(words[i][x] == temp[t]){
+                  for(var r=t; r<temp.length; r++){
+                      temp[r] = temp[r+1];
+                  }
+                   // console.log("lettercount", lettercount)
+                   // console.log(words[i][x])
+                   temp.pop();
+                   lettercount++;
+                   break;
+               }
+           }
+           
+       }
+       // console.log("lettercount", lettercount)
+       // console.log(words[i].length)
+       if(lettercount == words[i].length){
+           count = count + words[i].length;
+       }   
+       
+
+
+   } 
+    return count;
+};
